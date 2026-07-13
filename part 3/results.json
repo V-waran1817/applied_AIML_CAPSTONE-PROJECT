@@ -1,0 +1,176 @@
+{
+  "n_rows_sampled": 500,
+  "n_features": 8,
+  "feature_cols": [
+    "age",
+    "bmi",
+    "children",
+    "sex_male",
+    "smoker_yes",
+    "region_northwest",
+    "region_southeast",
+    "region_southwest"
+  ],
+  "median_cost": 9238.7,
+  "logreg": {
+    "train_acc": 0.9125,
+    "test_acc": 0.91,
+    "test_auc": 0.9416
+  },
+  "dt_unconstrained": {
+    "train_acc": 1.0,
+    "test_acc": 0.88,
+    "gap": 0.12
+  },
+  "dt_controlled": {
+    "train_acc": 0.9325,
+    "test_acc": 0.92,
+    "gap": 0.012499999999999956
+  },
+  "gini_vs_entropy": {
+    "gini_test_acc": 0.92,
+    "entropy_test_acc": 0.93
+  },
+  "rf": {
+    "train_acc": 0.995,
+    "test_acc": 0.91,
+    "test_auc": 0.96,
+    "top5": {
+      "age": 0.49845761086660656,
+      "smoker_yes": 0.25483027362000593,
+      "bmi": 0.13532057897961858,
+      "children": 0.060296719351629835,
+      "sex_male": 0.01867088106987802
+    },
+    "bottom5": {
+      "children": 0.060296719351629835,
+      "sex_male": 0.01867088106987802,
+      "region_southwest": 0.012024284755135872,
+      "region_southeast": 0.010929439380758917,
+      "region_northwest": 0.009470211976366341
+    },
+    "all_importances": {
+      "age": 0.49845761086660656,
+      "smoker_yes": 0.25483027362000593,
+      "bmi": 0.13532057897961858,
+      "children": 0.060296719351629835,
+      "sex_male": 0.01867088106987802,
+      "region_southwest": 0.012024284755135872,
+      "region_southeast": 0.010929439380758917,
+      "region_northwest": 0.009470211976366341
+    }
+  },
+  "gb": {
+    "train_acc": 0.98,
+    "test_acc": 0.93,
+    "test_auc": 0.9504
+  },
+  "ablation": {
+    "removed_features": [
+      "children",
+      "sex_male",
+      "region_southwest",
+      "region_southeast",
+      "region_northwest"
+    ],
+    "kept_features": [
+      "age",
+      "bmi",
+      "smoker_yes"
+    ],
+    "full_model_auc": 0.96,
+    "reduced_model_auc": 0.9239999999999999,
+    "auc_delta": 0.03600000000000003
+  },
+  "cv_comparison": {
+    "Logistic Regression": {
+      "mean_auc": 0.951375,
+      "std_auc": 0.013219304066402295
+    },
+    "Decision Tree (depth=5)": {
+      "mean_auc": 0.9284375,
+      "std_auc": 0.022499131927698916
+    },
+    "Random Forest": {
+      "mean_auc": 0.945625,
+      "std_auc": 0.024561784340719223
+    },
+    "Gradient Boosting": {
+      "mean_auc": 0.9483750000000001,
+      "std_auc": 0.021602227894363064
+    }
+  },
+  "grid_search": {
+    "best_params": {
+      "randomforestclassifier__max_depth": 5,
+      "randomforestclassifier__min_samples_leaf": 1,
+      "randomforestclassifier__n_estimators": 200
+    },
+    "best_score": 0.947625,
+    "n_configs": 18,
+    "total_fits": 90,
+    "best_pipeline_test_auc": 0.9536
+  },
+  "learning_curve": [
+    [
+      0.2,
+      80,
+      0.9974858579509743,
+      0.916
+    ],
+    [
+      0.4,
+      160,
+      0.9939024390243902,
+      0.9236000000000001
+    ],
+    [
+      0.6,
+      240,
+      0.9859478260869564,
+      0.9544
+    ],
+    [
+      0.8,
+      320,
+      0.988046408062815,
+      0.9451999999999999
+    ],
+    [
+      1.0,
+      400,
+      0.9843749999999999,
+      0.9536
+    ]
+  ],
+  "reload_predictions": [
+    1,
+    0
+  ],
+  "summary_table": [
+    {
+      "model": "Logistic Regression",
+      "cv_mean_auc": 0.951375,
+      "cv_std_auc": 0.013219304066402295,
+      "test_auc": 0.9416
+    },
+    {
+      "model": "Decision Tree (depth=5)",
+      "cv_mean_auc": 0.9284375,
+      "cv_std_auc": 0.022499131927698916,
+      "test_auc": 0.9272
+    },
+    {
+      "model": "Random Forest",
+      "cv_mean_auc": 0.945625,
+      "cv_std_auc": 0.024561784340719223,
+      "test_auc": 0.96
+    },
+    {
+      "model": "Gradient Boosting",
+      "cv_mean_auc": 0.9483750000000001,
+      "cv_std_auc": 0.021602227894363064,
+      "test_auc": 0.9504
+    }
+  ]
+}
